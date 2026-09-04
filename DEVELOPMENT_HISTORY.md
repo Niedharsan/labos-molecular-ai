@@ -90,11 +90,9 @@ Added or strengthened areas included:
 - promoter/reference-sequence resolution;
 - sequence, material and external-reference identity handling.
 
-The private runtime now exposes a broad typed molecular-tool surface, while the AI sees only the task-relevant subset.
-
 ## August 2026 — Separate evaluation and training infrastructure
 
-A separate service was developed to construct and evaluate molecular-design tasks without mixing benchmark/evaluation data into the normal LabOS runtime.
+A separate AI service was developed to construct and evaluate molecular-design tasks without mixing benchmark/evaluation data into the normal LabOS runtime.
 
 It provides controlled task construction, evidence isolation, observable tool/decision traces, human review and reproducible evaluation of molecular workflows. The detailed model-training strategy is intentionally outside the scope of this public repository.
 
@@ -159,4 +157,3 @@ LabOS currently combines:
 
 The public repository intentionally exposes only architecture, selected non-sensitive code excerpts, synthetic examples and demonstration media. The active research codebase remains private.
 
-> **Architecture note:** the separate scientific-discovery project that later became **HypothesisForge** uses a true multi-agent design. That was a different system and should not be confused with the LabOS molecular runtime.
