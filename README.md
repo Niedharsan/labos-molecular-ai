@@ -15,7 +15,7 @@ LabOS is a research tool for turning molecular-biology objectives into structure
 - in vivo and in vitro workflows
 - cloning-method selection that can consider available laboratory materials and user preferences
 
-LabOS initially explored multi-agent orchestration, but the molecular runtime was later consolidated into a **single persistent scientific AI with dynamically composed domain skills**. This keeps the biological context in one workflow while allowing the system to switch between cloning, CRISPR and other molecular capabilities as required.
+The early CRISPR platform combined deterministic molecular services with GPT-assisted biological interpretation. When the unified LangGraph molecular runtime was introduced, it used **one persistent scientific AI with dynamically composed domain skills from the outset**. For this workstation-style molecular-design system, this is deliberately better suited than a multi-agent architecture: one specialist retains the complete biological objective, laboratory context, prior decisions and deterministic evidence across the workflow, while only the required molecular skills are switched in and out. This reduces context fragmentation between separate agents while still allowing specialised cloning, CRISPR and analysis behaviour.
 
 AI handles biological interpretation, workflow selection and replanning. Established deterministic tools perform exact sequence operations, molecular calculations, primer design and validation.
 
