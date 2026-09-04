@@ -1,0 +1,30 @@
+{
+  "note": "Synthetic public example; no real laboratory sequence or unpublished construct is included.",
+  "objective": "Create a stable fluorescent reporter construct for a model-organism experiment.",
+  "context": {
+    "task_type": "cloning",
+    "biological_intent": "stable_expression",
+    "available_materials": [
+      "example_vector",
+      "example_reporter_insert"
+    ],
+    "user_preference": "prefer existing laboratory material when scientifically appropriate"
+  },
+  "skills_loaded": [
+    "molecular-core",
+    "cloning"
+  ],
+  "workflow": [
+    "resolve available components",
+    "select an appropriate cloning route",
+    "calculate the exact molecular assembly with deterministic tools",
+    "design/evaluate primers if required",
+    "validate the resulting construct"
+  ],
+  "result": {
+    "status": "draft",
+    "warnings": [
+      "Synthetic showcase example only; not experimentally validated."
+    ]
+  }
+}

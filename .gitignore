@@ -1,0 +1,15 @@
+.DS_Store
+.env
+.env.*
+*.key
+*.pem
+__pycache__/
+.pytest_cache/
+node_modules/
+.next/
+private/
+data/
+sequences/
+*.gb
+*.gbk
+*.dna
