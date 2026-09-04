@@ -1,104 +1,162 @@
 # Development History
 
 > LabOS has been developed in a private Git repository since **July 2026**.  
-> This public repository is a technical showcase, so the private source history and pull-request links are not exposed. The milestones below are taken from the actual private Git/PR history.
+> This public repository is a technical showcase, so private source history, prompts, datasets and pull-request links are not exposed. The milestones below are taken from the actual development history.
 
-## July 2026 — From molecular tools to a unified AI workspace
+## July 2026 — CRISPR and molecular-engine foundation
 
-- Built a chat-first molecular-engineering interface around the existing CRISPR, primer, cloning and laboratory-library tools.
-- Added persistent molecular sessions, structured results and evidence/tool summaries.
-- Replaced the earlier fixed/planner-style architecture with a **single autonomous molecular specialist using dynamically loaded skills**.
-- Added deterministic completion/validation gates so exact molecular operations remained outside the AI reasoning layer.
-- Expanded Library-aware component selection and exact virtual cloning workflows.
+LabOS began as a set of molecular-biology services that I built around CRISPR design and sequence handling, before the later unified molecular workspace.
 
-## Late July 2026 — Library-grounded cloning and workflow evaluation
+Early capabilities included:
 
-- Added biological-role-based Library component resolution rather than searching for whole workflows as one text query.
-- Added exact construct simulation and validation for Library-derived cloning workflows.
-- Built a separate published-plasmid reconstruction/evaluation service with isolated data and review storage.
+- API-first gene and transcript resolution;
+- transcript-aware genomic/CDS mapping;
+- protein-domain evidence for target selection;
+- CRISPR guide generation, ranking and user-guide auditing;
+- CRISPRscan/CHOPCHOP activity evidence and Bowtie-based off-target evidence;
+- Primer3-backed primer design;
+- restriction-site analysis;
+- knock-in cassette, donor and validation-primer planning;
+- structured GPT hand-offs so biological judgement could be combined with deterministic backend calculations.
 
-## August 2026 — Persistent scientific runtime
+The early system was **not a multi-agent molecular architecture**. It combined deterministic scientific services with GPT-assisted biological interpretation/review.
 
-- Consolidated the system around one persistent `MolecularDesignGraph` and shared workflow state.
-- Added PostgreSQL/Alembic-backed persistence and production-readiness fixes.
-- Added real multi-turn molecular conversations rather than treating every reply as a new task.
-- Added resumable long-running workflows and provider/runtime recovery.
+## Late July 2026 — Unified LabOS workspace and single scientific specialist
 
-## August 2026 — Provider and model independence
+The CRISPR, primer, cloning, sequence and laboratory-library components were brought into one molecular-engineering workspace.
 
-- Separated the molecular workflow from any one LLM provider.
-- Added OpenAI-compatible, Hermes and local-model transport paths behind the same scientific runtime.
-- Reduced repeated model context and provider overhead while keeping the same molecular state and deterministic tools.
-- Added bounded parallel execution for independent deterministic calls.
+From the first LangGraph-based molecular runtime, the architecture used **one autonomous molecular specialist rather than a multi-agent swarm**. The aim was to keep the full biological objective and accumulated evidence in one context while loading only the relevant skills and tools for the current task.
 
-## August 2026 — Molecular capability expansion
+This stage added:
 
-Expanded deterministic scientific support without creating a separate AI for each task:
+- a chat-first molecular interface;
+- persistent molecular sessions and structured results;
+- repository-controlled cloning, knockout and knock-in skills;
+- a typed deterministic tool catalogue;
+- exact sequence/material handling outside the LLM;
+- deterministic completion and validation gates;
+- Library-aware component selection and exact virtual cloning;
+- molecular-file import and construct visualisation.
 
-- general PCR and exact virtual PCR
-- cloning/CRISPR assay design and qPCR modes
-- MAFFT/MUSCLE nucleotide and protein alignment
-- conservation analysis and shared-target CRISPR design
-- exact genomic edit reconstruction and consequence analysis
-- Golden Gate/MoClo optimization
-- RNA structure and bacterial RBS analysis
-- sequence/reference retrieval and source tracking
+## Late July–August 2026 — Cloning and construct-design expansion
 
-## August–September 2026 — Single-specialist architecture refinement
+The cloning layer expanded from basic construct operations into a broader molecular-design system covering multiple assembly families and multi-step workflows.
 
-The system was progressively simplified so that:
+Work included:
 
-- **one scientific AI retains the full task context**;
-- cloning, knockout, knock-in and other abilities are loaded as skills when needed;
-- deterministic tools own exact sequence operations and molecular calculations;
-- AI owns biological interpretation, component/method choice, replanning and stopping decisions;
-- final outputs remain grounded in exact deterministic evidence.
+- restriction/ligation and seamless assembly;
+- Golden Gate and hierarchical MoClo;
+- Gateway/MultiSite Gateway;
+- USER and yeast-assembly foundations;
+- cloning-specific primer/PCR workflows;
+- exact intermediate-product reuse across sequential reactions;
+- construct identity and junction checks;
+- assembly reporting and source-material tracking;
+- laboratory-inventory-aware route selection rather than assuming every sequence must be synthesized or re-created.
+
+## August 2026 — Persistent scientific runtime and model independence
+
+The application was hardened from a collection of callable tools into a persistent scientific workflow runtime.
+
+Key changes included:
+
+- one persistent `MolecularDesignGraph` carrying the molecular task state;
+- real multi-turn conversations and resumable long-running workflows;
+- PostgreSQL/Alembic-backed persistence and checkpoints;
+- model/provider abstraction so the same molecular runtime could use different OpenAI-compatible, Hermes or local model paths;
+- bounded parallel execution for independent deterministic operations;
+- context/evidence compaction so long sequences and repeated tool outputs were not unnecessarily sent back to the model;
+- explicit separation between model reasoning, deterministic tool output and completion evidence.
+
+## August 2026 — Broad molecular capability layer
+
+Scientific support expanded substantially while keeping one specialist runtime and reusing shared engines instead of creating one AI agent per capability.
+
+Added or strengthened areas included:
+
+- general PCR and exact virtual PCR;
+- insert, vector, mutagenesis, colony, junction and genotyping PCR workflows;
+- qPCR and CRISPR validation-assay planning;
+- Sanger-primer selection and primer walking;
+- nucleotide/protein alignment with MAFFT/MUSCLE;
+- conservation analysis across paralogs, ohnologs and orthologs;
+- shared-target/multilocus CRISPR design;
+- exact reconstruction of deletions, HDR knock-ins, base edits and prime edits;
+- coding/protein consequence analysis;
+- Golden Gate overhang/breakpoint optimisation;
+- RNA structure/accessibility analysis;
+- bacterial RBS analysis;
+- codon optimisation and sequence-quality checks;
+- promoter/reference-sequence resolution;
+- sequence, material and external-reference identity handling.
+
+The private runtime now exposes a broad typed molecular-tool surface, while the AI sees only the task-relevant subset.
+
+## August 2026 — Separate evaluation and training infrastructure
+
+A separate service was developed to construct and evaluate molecular-design tasks without mixing benchmark/evaluation data into the normal LabOS runtime.
+
+It provides controlled task construction, evidence isolation, observable tool/decision traces, human review and reproducible evaluation of molecular workflows. The detailed model-training strategy is intentionally outside the scope of this public repository.
 
 ## September 2026 — Evidence-grounded cloning expansion
 
-A separate research workflow was used to systematically investigate **36 cloning and DNA-construction methods**.
+A separate research workflow was used to systematically investigate **36 cloning and DNA-construction methods** rather than relying on a small set of textbook workflows.
 
-The resulting research corpus retained:
+The retained research corpus contained:
 
-- **≥987 source-method evidence instances**
-- **≥414 explicitly classified primary/method papers**
-- **860 structured practical observations, failure modes and rescue strategies**
-- **77 deduplicated reusable capability classes**
+- **≥987 source-method evidence instances**;
+- **≥414 explicitly classified primary/method papers**;
+- **860 structured practical observations, failure modes and rescue strategies**;
+- **77 deduplicated reusable capability classes**.
 
-These findings were used to expand and consolidate LabOS cloning capabilities rather than creating dozens of duplicate method-specific tools.
+The research was used to identify method-specific constraints, practical failure points, rescue strategies and places where established scientific software could replace redundant project-owned logic.
 
 ## September 2026 — Scientific-engine consolidation
 
-The molecular backend was further simplified around established scientific software where possible:
+The molecular backend was progressively consolidated around established scientific software where appropriate, while LabOS retained biological context, tool coordination and evidence interpretation.
 
-- pydna for supported cloning/reaction chemistry
-- DnaCauldron for Golden Gate/MoClo
-- Primer3 for primer design/evaluation
-- CRISPRscan/CHOPCHOP and separate specificity evidence for CRISPR
-- DNA Chisel for repeat/hairpin evidence
-- ViennaRNA/OSTIR for RNA/RBS analysis
-- mappy/minimap2 and pyspoa for long-read/full-plasmid QC
-- pySBOL3 for sequence/feature interoperability
+Examples include:
 
-Legacy and duplicate project-owned implementations were removed where an established backend could become authoritative.
+- **pydna** for supported cloning/reaction chemistry;
+- **DnaCauldron** for Golden Gate/MoClo;
+- **Primer3** for primer design/evaluation;
+- **CRISPRscan + CHOPCHOP** for guide-activity evidence;
+- **Bowtie / crisprVerse** for specificity evidence;
+- **DNA Chisel** for repeat/hairpin analysis;
+- **ViennaRNA + OSTIR** for RNA/RBS analysis;
+- **mappy/minimap2 + pyspoa** for long-read/full-plasmid QC;
+- **pySBOL3** for sequence/feature interoperability.
 
-## September 2026 — Validation, provenance and privacy hardening
+Where mature scientific engines existed, duplicate internal chemistry/scoring implementations were removed rather than maintained in parallel.
 
-- Added PCR-history-aware construct-validation planning.
-- Added full-plasmid/long-read QC support.
-- Improved exact material/reference identity tracking.
-- Added central control over external sequence/file data egress.
-- Continued expanding regression tests around routing, cloning chemistry, CRISPR evidence and source/material handling.
+## September 2026 — Routing, QC, material identity and privacy hardening
 
-## Current state
+The later work focused on making complex workflows more reliable and auditable rather than simply adding more features.
 
-LabOS is an **active research prototype** combining:
+This included:
 
-- a persistent scientific AI;
-- dynamically composed molecular skills;
-- deterministic molecular-biology engines;
-- laboratory/library context;
-- structured validation and source tracking;
+- species/context-aware biological-intent routing;
+- multi-part requests with independently completable molecular routes;
+- PCR-history-aware validation-depth planning;
+- long-read/full-plasmid sequence QC;
+- exact material/reference identity and source tracking;
+- central control over sequence/file data leaving the local system;
+- stronger fail-closed behaviour when required molecular evidence is unavailable;
+- continued regression testing around routing, cloning chemistry, CRISPR evidence and construct validation.
+
+## Current architecture
+
+LabOS currently combines:
+
+- **one persistent scientific AI** that retains the task context;
+- dynamically loaded molecular skills;
+- a large typed catalogue of deterministic molecular actions;
+- laboratory/library-aware material selection;
+- external biological reference integration;
+- exact reaction/sequence simulation through scientific software;
+- validation and source/material tracking;
 - a separate evaluation/training system.
 
 The public repository intentionally exposes only architecture, selected non-sensitive code excerpts, synthetic examples and demonstration media. The active research codebase remains private.
+
+> **Architecture note:** the separate scientific-discovery project that later became **HypothesisForge** uses a true multi-agent design. That was a different system and should not be confused with the LabOS molecular runtime.
