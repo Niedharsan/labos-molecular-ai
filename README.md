@@ -19,6 +19,8 @@ The early CRISPR platform combined deterministic molecular services with GPT-ass
 
 AI handles biological interpretation, workflow selection and replanning. Established deterministic tools perform exact sequence operations, molecular calculations, primer design and validation.
 
+Recent optimisation work has reduced repeated model-context overhead in long molecular workflows and made biological selection more structured so that biological decisions remain clearer during downstream molecular design. The internal decision structure and context-management mechanisms are intentionally not exposed in this public showcase.
+
 ## Why I built it
 
 Molecular-design work often requires moving between literature, sequence databases, plasmid files, CRISPR tools, primer software and method-specific troubleshooting information. It can also involve several rounds of in-silico simulation and file creation.
