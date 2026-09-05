@@ -142,6 +142,12 @@ This included:
 - stronger fail-closed behaviour when required molecular evidence is unavailable;
 - continued regression testing around routing, cloning chemistry, CRISPR evidence and construct validation.
 
+## 5 September 2026 — Context efficiency and biological-selection refinement
+
+Recent work focused on reducing unnecessary model-context/token use during long molecular-design runs while preserving exact scientific evidence and deterministic validation. Biological selection was also made more structured so that core biological choices remain clearer and more stable as a task progresses.
+
+The detailed prompt, evidence-management and decision-routing mechanisms behind these changes are intentionally not included in the public showcase.
+
 ## Current architecture
 
 LabOS currently combines:
