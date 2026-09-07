@@ -7,7 +7,7 @@
 
 LabOS is a research platform for turning molecular-biology objectives into structured, testable workflows across:
 
-- **36 cloning and DNA-construction method dossiers**
+- **36 cloning and DNA-construction methods researched**
 - **CRISPR workflows** including knockout, CRISPANT, knock-in, full deletion and shared-target designs
 - sequence and construct analysis
 - primer/PCR/qPCR design and construct validation
@@ -19,20 +19,14 @@ LabOS is a research platform for turning molecular-biology objectives into struc
 
 ## System scale at a glance
 
-| Layer | Implemented / audited scale |
+| Capability | Scale |
 |---|---:|
-| Cloning / DNA-construction methods researched | **36** |
-| Current typed molecular contracts | **116** unique registered contracts (**114** in the earlier frozen capability audit) |
-| Deterministic biological engine families | **29** in the frozen capability audit |
-| Sequence-resolvable cloning strategy families | **34** in the frozen capability audit |
-| Active scientific/runtime software integrations | **20** in the frozen core inventory, with additional integrated/optional backends added later |
-| Biological database / reference-resource packages | **~30** at architecture level |
-| Retained source–method evidence instances | **≥987** |
-| Explicitly classified primary/method papers | **≥414** |
-| Research-report corpus | **~354,426 words** |
-| Structured practical observations / failure modes / rescue strategies | **860** |
-| Deduplicated reusable capability classes | **77** |
-| High-leverage shared implementation families | **8** |
+| Registered molecular tools | **116** typed molecular tool contracts |
+| Cloning methods researched | **36** method families |
+| Reviewed species/workflow profiles | **16** profiles across **12** organism/context categories |
+| Research references reviewed across cloning methods | **≥987** method-linked source records |
+| Practical implementation findings extracted from the research | **860** |
+| Reusable engineering capabilities identified from those findings | **77** |
 
 The tool surface is intentionally larger than the number of underlying engines: many typed molecular actions share validated scientific backends rather than reimplementing the same calculation repeatedly. Examples include PCR/qPCR/Sanger assay modes over shared Primer3, thermodynamic, specificity and exact-PCR engines, and multiple assembly workflows over shared exact sequence-handling infrastructure.
 
@@ -71,32 +65,30 @@ LabOS brings these steps into one workflow while separating **AI scientific reas
 
 The cloning reasoning layer was developed through a **method-by-method evidence-mining campaign**, rather than from a small set of textbook protocols.
 
-A separate **private research AI system with deterministic tools and API access** was built specifically to conduct and structure this research. It is **not included in this public repository or in the active LabOS code repository**. The research system investigated each cloning methodology independently, classified and synthesized the retained evidence, extended searches into troubleshooting communities for failure-mode discovery/saturation, and generated **one structured Markdown research dossier per method**.
+A separate **private research AI system with deterministic tools and API access** was built specifically to conduct and structure this research. It is **not included in this public repository or in the active LabOS code repository**. The research system investigated each cloning methodology independently, reviewed and synthesized the evidence, extended searches into troubleshooting communities for failure-mode discovery/saturation, and generated **one structured Markdown research dossier per method**.
 
 Across the 36 dossiers:
 
 | Research layer | Scale |
 |---|---:|
 | Cloning / DNA-construction methods reviewed | **36** |
-| Retained source–method evidence instances | **≥987** |
-| Mean retained evidence per method | **27.4** (range **22–33**) |
+| Method-linked source records reviewed | **≥987** |
+| Sources reviewed per method dossier | **22–33** |
 | Explicitly classified primary/method papers | **≥414** |
-| Other retained evidence | **≥573** manufacturer/official, protocol, software, repository, review, patent, application and specialist sources |
+| Other reviewed sources | **≥573** manufacturer/official, protocol, software, repository, review, patent, application and specialist sources |
 | Private research-report corpus | **~354,426 words** |
-| Structured practical observations, failure modes and rescue strategies | **860** |
-| Deduplicated reusable capability classes | **77** |
-| Research-to-capability compression | **11.2:1** (**91.0% fewer units**) |
-| High-leverage shared implementation families | **8** |
+| Practical implementation findings, failure modes and rescue strategies | **860** |
+| Reusable engineering capabilities identified from those findings | **77** |
 
 The research funnel can be summarized as:
 
-**36 methods → ≥987 retained source–method evidence instances → ~354k words of structured synthesis → 860 method-specific practical observations → 77 reusable capability classes → 8 high-leverage shared implementation families**
+**36 methods → ≥987 method-linked source records reviewed → ~354k words of structured synthesis → 860 practical implementation findings → 77 reusable engineering capabilities**
 
 The evidence stack included primary/method literature, manufacturer documentation, established protocols, standards, software/design resources, repositories, reviews and targeted troubleshooting searches. ResearchGate, specialist forums, Reddit and Q&A sources were used primarily to discover practical failure modes and test search saturation; high-confidence system behaviour was grounded in stronger evidence or deterministic sequence/chemistry checks wherever possible.
 
-A representative private dossier retained **more than 20 sources** and extracted structured route distinctions, failure modes, rescue strategies and cross-method alternatives. The full dossier contents are intentionally withheld because they encode unpublished research synthesis and implementation heuristics; a redacted excerpt can be shown during a guided technical walkthrough.
+A representative private dossier reviewed **more than 20 sources** and extracted structured route distinctions, failure modes, rescue strategies and cross-method alternatives. The full dossier contents are intentionally withheld because they encode unpublished research synthesis and implementation heuristics; a redacted excerpt can be shown during a guided technical walkthrough.
 
-> **Counting note:** ≥987 is a count of retained **source–method evidence instances**, not 987 globally unique documents. A source can legitimately inform more than one method dossier.
+> **Counting note:** ≥987 is a count of **method-linked source records**, not 987 globally unique documents. A source can legitimately inform more than one method dossier.
 
 A **different** separate curriculum/evaluation system is used for controlled molecular-task collection, validation and future AI improvement; it is described below and should not be confused with the research AI that created the method dossiers.
 
@@ -136,7 +128,7 @@ flowchart LR
 
 ## Selected scientific software
 
-LabOS uses established scientific software wherever mature implementations already exist rather than recreating specialist algorithms unnecessarily. The frozen core capability audit contained **20 active scientific/runtime integrations**, with additional integrated or optional scientific backends added later. Representative components include:
+LabOS uses established scientific software wherever mature implementations already exist rather than recreating specialist algorithms unnecessarily. Representative components include:
 
 - **Biopython + SnapGene Reader** — sequence/feature parsing and compound-location handling
 - **pydna** — molecular handling, PCR and supported cloning chemistry
@@ -170,8 +162,6 @@ Current architecture includes:
 - laboratory **PostgreSQL plasmid, sequence, feature, primer, construct and inventory data**
 - curated codon-usage, cloning-method, species/workflow and validation-rule datasets
 - local CRISPRscan/CHOPCHOP/Bowtie/BLAST execution paths where appropriate rather than assuming unsupported public REST APIs
-
-The architecture-level audit reconciled roughly **30 named external/public, local/reference and curated biological resource packages**. That number is treated as an architecture count rather than a permanent machine-derived invariant because resources continue to evolve.
 
 ## Technology stack
 
@@ -274,7 +264,6 @@ Planned demonstrations:
 - Outputs require appropriate scientific review and experimental validation.
 - Some method/species combinations have deeper support than others.
 - Some workflows depend on local or external scientific databases/tools.
-- Data-resource counts are architecture-level and may evolve as integrations change.
 - The architecture continues to evolve.
 
 ## Repository scope
