@@ -100,12 +100,12 @@ It provides controlled task construction, evidence isolation, observable tool/de
 
 A separate research workflow was used to systematically investigate **36 cloning and DNA-construction methods** rather than relying on a small set of textbook workflows.
 
-The retained research corpus contained:
+The research corpus contained:
 
-- **≥987 source-method evidence instances**;
+- **≥987 method-linked source records reviewed**;
 - **≥414 explicitly classified primary/method papers**;
-- **860 structured practical observations, failure modes and rescue strategies**;
-- **77 deduplicated reusable capability classes**.
+- **860 practical implementation findings, failure modes and rescue strategies**;
+- **77 reusable engineering capabilities identified from those findings**.
 
 The research was used to identify method-specific constraints, practical failure points, rescue strategies and places where established scientific software could replace redundant project-owned logic.
 
@@ -162,4 +162,3 @@ LabOS currently combines:
 - a separate evaluation/training system.
 
 The public repository intentionally exposes only architecture, selected non-sensitive code excerpts, synthetic examples and demonstration media. The active research codebase remains private.
-
