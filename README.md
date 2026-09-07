@@ -7,23 +7,22 @@
 
 LabOS is a research platform for turning molecular-biology objectives into structured, testable workflows across:
 
-- **36 cloning and DNA-construction methods researched**
+- **36 cloning and DNA-construction methods researched, grounded in 900+ source records**
 - **CRISPR workflows** including knockout, CRISPANT, knock-in, full deletion and shared-target designs
-- sequence and construct analysis
+- sequence, plasmid and construct analysis
 - primer/PCR/qPCR design and construct validation
-- laboratory sequence/plasmid management
-- multi-species and experimental-context routing
-- in vivo and in vitro workflows
-- cloning-method selection that can consider available laboratory materials and user preferences
+- laboratory plasmid, sequence and reagent management
+- multi-species and workflow-context routing
+- uses available laboratory materials in the library to choose feasible workflow routes
+- **116 molecular tools backed by shared deterministic engines**
 
 ## System scale at a glance
 
 | Capability | Scale |
 |---|---:|
-| Molecular tools | **116** registered tools |
+| Molecular tools | **116** registered tools backed by shared deterministic engines |
 | Cloning methods researched | **36** method families |
 | Species/workflow profiles | **16** reviewed profiles across **12** organism/context categories |
-| Biological engine families | **29** audited core engine families |
 | Software integrations | **26** documented scientific backends: 20 audited core + 6 later integrated/optional backends |
 | Database / reference resources | **5** external/reference-service paths plus local genome, annotation and index resources |
 | Research evidence | **≥987** method-linked source records, including **≥414** primary/method papers; **~354,426 words** of synthesis |
@@ -87,25 +86,13 @@ A **different** separate curriculum/evaluation system is used for controlled mol
 ## Architecture
 
 ```mermaid
-flowchart LR
-    U[Researcher] --> UI[Web workspace]
-    UI --> API[FastAPI / structured API layer]
-    API --> AI[Persistent scientific AI]
-
-    AI --> R[Intent + biological context]
-    R --> S[Dynamic molecular skills]
-    S --> D[Scientific decision loop]
-
-    D --> T[116 molecular tools]
-    T --> E[Deterministic scientific engines]
-    E --> V[Validation + provenance]
-    V --> DB[(PostgreSQL)]
-    V --> UI
-
-    X[Reference APIs + local biological resources] --> D
-    H[Hermes provider layer] --> AI
-    C[Custom-GPT teacher / evaluation service] -.-> AI
-    Q[Private method-research AI] -.-> S
+flowchart TD
+    U[Research objective] --> AI[Persistent scientific AI]
+    AI --> S[Dynamic molecular skills]
+    S --> T[116 molecular tools + shared deterministic engines]
+    S --> X[Reference APIs + local biological resources]
+    T --> V[Validation + provenance]
+    V --> O[Result]
 ```
 
 ## Implemented capability areas
