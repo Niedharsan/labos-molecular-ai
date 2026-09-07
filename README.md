@@ -2,7 +2,7 @@
 
 > **Public technical showcase.** The active research codebase remains private.
 
-[Full capability index](CAPABILITY_INDEX.md) — evaluator-facing list of molecular contracts, cloning methods, scientific software, APIs/data resources and workflow coverage.  
+[Full capability index](CAPABILITY_INDEX.md) — evaluator-facing list of molecular tools, cloning methods, scientific software, APIs/data resources and workflow coverage.  
 [Development history](DEVELOPMENT_HISTORY.md) — milestones from the private Git/PR history since July 2026.
 
 LabOS is a research platform for turning molecular-biology objectives into structured, testable workflows across:
@@ -15,22 +15,19 @@ LabOS is a research platform for turning molecular-biology objectives into struc
 - multi-species and experimental-context routing
 - in vivo and in vitro workflows
 - cloning-method selection that can consider available laboratory materials and user preferences
-- **token-use optimisation that reduced total model consumption by ~56% in a representative long molecular task**
 
 ## System scale at a glance
 
 | Capability | Scale |
 |---|---:|
-| Registered molecular tools | **116** typed molecular tool contracts |
+| Molecular tools | **116** registered tools |
 | Cloning methods researched | **36** method families |
-| Reviewed species/workflow profiles | **16** profiles across **12** organism/context categories |
-| Research references reviewed across cloning methods | **≥987** method-linked source records |
-| Practical implementation findings extracted from the research | **860** |
-| Reusable engineering capabilities identified from those findings | **77** |
-
-The tool surface is intentionally larger than the number of underlying engines: many typed molecular actions share validated scientific backends rather than reimplementing the same calculation repeatedly. Examples include PCR/qPCR/Sanger assay modes over shared Primer3, thermodynamic, specificity and exact-PCR engines, and multiple assembly workflows over shared exact sequence-handling infrastructure.
-
-**For technical evaluation:** see the [full capability index](CAPABILITY_INDEX.md), which separates the current 116 typed contracts from shared deterministic engines, researched cloning methods, scientific software, external APIs/reference services and local biological resources.
+| Species/workflow profiles | **16** reviewed profiles across **12** organism/context categories |
+| Biological engine families | **29** audited core engine families |
+| Software integrations | **26** documented scientific backends: 20 audited core + 6 later integrated/optional backends |
+| Database / reference resources | **5** external/reference-service paths plus local genome, annotation and index resources |
+| Research evidence | **≥987** method-linked source records, including **≥414** primary/method papers; **~354,426 words** of synthesis |
+| Practical research output | **860** implementation findings consolidated into **77** reusable engineering capabilities |
 
 ## AI architecture
 
@@ -38,7 +35,7 @@ The early CRISPR platform combined deterministic molecular services with GPT-ass
 
 AI handles biological interpretation, workflow selection, evidence use and replanning. Established deterministic tools perform exact sequence operations, molecular calculations, primer design, assembly simulation and validation.
 
-The model layer is provider-abstracted. Current live validation runs use the **Hermes provider path → OpenAI Codex provider → `gpt-5.6-terra`**, while the molecular graph, tool contracts and scientific validation layer remain independent of a single model provider.
+The model layer is provider-abstracted. Current live validation runs use the **Hermes provider path → OpenAI Codex provider → `gpt-5.6-terra`**, while the molecular graph, molecular-tool interface and scientific validation layer remain independent of a single model provider.
 
 ## Token-efficient orchestration
 
@@ -65,20 +62,15 @@ LabOS brings these steps into one workflow while separating **AI scientific reas
 
 The cloning reasoning layer was developed through a **method-by-method evidence-mining campaign**, rather than from a small set of textbook protocols.
 
-A separate **private research AI system with deterministic tools and API access** was built specifically to conduct and structure this research. It is **not included in this public repository or in the active LabOS code repository**. The research system investigated each cloning methodology independently, reviewed and synthesized the evidence, extended searches into troubleshooting communities for failure-mode discovery/saturation, and generated **one structured Markdown research dossier per method**.
+A separate **private research AI system with deterministic tools and API access** was built specifically to conduct and structure this research. It is **not included in this public repository or in the active LabOS code repository**. The research system investigated each cloning methodology independently, reviewed and synthesized the evidence, extended searches into troubleshooting communities for failure-mode discovery/saturation, and generated one structured research report per method.
 
-Across the 36 dossiers:
+Across the 36 researched methods:
 
 | Research layer | Scale |
 |---|---:|
-| Cloning / DNA-construction methods reviewed | **36** |
-| Method-linked source records reviewed | **≥987** |
-| Sources reviewed per method dossier | **22–33** |
-| Explicitly classified primary/method papers | **≥414** |
-| Other reviewed sources | **≥573** manufacturer/official, protocol, software, repository, review, patent, application and specialist sources |
-| Private research-report corpus | **~354,426 words** |
-| Practical implementation findings, failure modes and rescue strategies | **860** |
-| Reusable engineering capabilities identified from those findings | **77** |
+| Evidence reviewed | **≥987** method-linked source records, including **≥414** primary/method papers |
+| Research synthesis | **~354,426 words** across the private method reports |
+| Practical findings | **860** implementation findings, failure modes and rescue strategies → **77** reusable engineering capabilities |
 
 The research funnel can be summarized as:
 
@@ -86,25 +78,25 @@ The research funnel can be summarized as:
 
 The evidence stack included primary/method literature, manufacturer documentation, established protocols, standards, software/design resources, repositories, reviews and targeted troubleshooting searches. ResearchGate, specialist forums, Reddit and Q&A sources were used primarily to discover practical failure modes and test search saturation; high-confidence system behaviour was grounded in stronger evidence or deterministic sequence/chemistry checks wherever possible.
 
-A representative private dossier reviewed **more than 20 sources** and extracted structured route distinctions, failure modes, rescue strategies and cross-method alternatives. The full dossier contents are intentionally withheld because they encode unpublished research synthesis and implementation heuristics; a redacted excerpt can be shown during a guided technical walkthrough.
+A representative private method report reviewed **more than 20 sources** and extracted structured route distinctions, failure modes, rescue strategies and cross-method alternatives. The full research reports are intentionally withheld because they encode unpublished research synthesis and implementation heuristics; a redacted excerpt can be shown during a guided technical walkthrough.
 
-> **Counting note:** ≥987 is a count of **method-linked source records**, not 987 globally unique documents. A source can legitimately inform more than one method dossier.
+> **Counting note:** ≥987 is a count of **method-linked source records**, not 987 globally unique documents. A source can legitimately inform more than one method.
 
-A **different** separate curriculum/evaluation system is used for controlled molecular-task collection, validation and future AI improvement; it is described below and should not be confused with the research AI that created the method dossiers.
+A **different** separate curriculum/evaluation system is used for controlled molecular-task collection, validation and future AI improvement; it is described below and should not be confused with the research AI that created the 36 method reports.
 
 ## Architecture
 
 ```mermaid
 flowchart LR
     U[Researcher] --> UI[Web workspace]
-    UI --> API[FastAPI / typed API layer]
+    UI --> API[FastAPI / structured API layer]
     API --> AI[Persistent scientific AI]
 
     AI --> R[Intent + biological context]
     R --> S[Dynamic molecular skills]
     S --> D[Scientific decision loop]
 
-    D --> T[116 typed molecular contracts]
+    D --> T[116 molecular tools]
     T --> E[Deterministic scientific engines]
     E --> V[Validation + provenance]
     V --> DB[(PostgreSQL)]
@@ -124,7 +116,7 @@ flowchart LR
 - **Construct validation** — exact final-sequence validation, junction/full-plasmid validation planning, sequencing QC, repeat/hairpin checks, read alignment and PCR-history-aware validation.
 - **Comparative sequence analysis** — nucleotide/protein alignment, conservation analysis, paralogue/ohnologue and orthologue comparisons and source-coordinate mapping.
 - **Laboratory data** — plasmid and sequence storage, FASTA/GenBank/SnapGene/raw-sequence import, reference resolution, inventory search and source/material tracking.
-- **Workflow control** — biological-intent routing, species/context resolution, multi-part tasks, typed completion contracts, deterministic validation gates, repair/replanning and provenance-aware evidence handling.
+- **Workflow control** — biological-intent routing, species/context resolution, multi-part tasks, structured completion requirements, deterministic validation gates, repair/replanning and provenance-aware evidence handling.
 
 ## Selected scientific software
 
@@ -174,7 +166,7 @@ Current architecture includes:
 
 ## API architecture
 
-The private system is API-first and exposes typed service surfaces for:
+The private system is API-first and exposes structured service surfaces for:
 
 - laboratory inventory, plasmids, sequences and features
 - file import and sequence viewing
@@ -213,7 +205,7 @@ Draft result + warnings + evidence
 To demonstrate that this is an implemented system rather than only an architecture description, this showcase includes small **real, non-sensitive excerpts from the private LabOS codebase**:
 
 - [`selected_code/skill_registry_excerpt.py`](selected_code/skill_registry_excerpt.py) — shows how one persistent AI loads different molecular skills for different task types.
-- [`selected_code/molecular_contract_excerpt.py`](selected_code/molecular_contract_excerpt.py) — shows part of the typed task/completion contract used by the molecular runtime.
+- [`selected_code/molecular_contract_excerpt.py`](selected_code/molecular_contract_excerpt.py) — shows part of the structured task/completion definition used by the molecular runtime.
 
 Only small non-sensitive excerpts are published. Core scientific implementation, prompts, laboratory data and private research code remain private.
 
@@ -235,7 +227,7 @@ Passing software checks does **not** mean a construct or CRISPR design has been 
 
 ## Separate Custom-GPT teacher / evaluation system
 
-A separate curriculum service was built for **supervised molecular-task collection and model evaluation**. This is distinct from the private AI research system that generated the 36 method dossiers. Scientific reasoning still runs in the main MolecularDesignGraph; the teacher service schedules work and captures observable outputs rather than becoming a second scientific agent.
+A separate curriculum service was built for **supervised molecular-task collection and model evaluation**. This is distinct from the private AI research system that generated the 36 method reports. Scientific reasoning still runs in the main MolecularDesignGraph; the teacher service schedules work and captures observable outputs rather than becoming a second scientific agent.
 
 Its architecture separates:
 
@@ -256,7 +248,7 @@ Planned demonstrations:
 
 1. **LabOS overview** — laboratory library → molecular task → result
 2. **Example design workflow** — objective → AI decisions → deterministic tools → validation
-3. **Research-corpus evidence** — a redacted method-dossier excerpt showing research scale without publishing the private synthesis
+3. **Research-corpus evidence** — a redacted method-research excerpt showing research scale without publishing the private synthesis
 
 ## Limitations
 
@@ -270,6 +262,6 @@ Planned demonstrations:
 
 This repository is a **public technical showcase**, not the full LabOS source repository.
 
-It contains documentation, synthetic examples, selected real code excerpts and demonstration media. The active research codebase, complete method dossiers, laboratory data, unpublished sequences, internal prompts, provider credentials and private evaluation assets remain private.
+It contains documentation, synthetic examples, selected real code excerpts and demonstration media. The active research codebase, complete method research reports, laboratory data, unpublished sequences, internal prompts, provider credentials and private evaluation assets remain private.
 
 For technical discussion or a guided demonstration, please contact the author through LinkedIn.
