@@ -167,26 +167,6 @@ The private system is API-first and exposes structured service surfaces for:
 
 The public showcase does not expose private endpoints, credentials, laboratory records or unpublished sequence data. See [CAPABILITY_INDEX.md](CAPABILITY_INDEX.md) for the public evaluator-facing integration inventory.
 
-## Example workflow
-
-[`examples/example_workflow.json`](examples/example_workflow.json) is a **synthetic example** showing the type of information passed through a LabOS task without exposing real laboratory sequences or unpublished constructs.
-
-```text
-Research objective
-      ↓
-Biological intent + context
-      ↓
-Relevant molecular skills
-      ↓
-AI selects a workflow
-      ↓
-Deterministic tools calculate/check exact molecular operations
-      ↓
-Validation
-      ↓
-Draft result + warnings + evidence
-```
-
 ## Selected real code
 
 To demonstrate that this is an implemented system rather than only an architecture description, this showcase includes small **real, non-sensitive excerpts from the private LabOS codebase**:
