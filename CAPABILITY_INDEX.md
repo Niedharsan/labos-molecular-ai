@@ -10,11 +10,10 @@
 |---|---:|
 | Registered molecular tools | **116** typed molecular tool contracts |
 | Cloning methods researched | **36** method families |
+| Reviewed species/workflow profiles | **16** profiles across **12** organism/context categories |
 | Research references reviewed across cloning methods | **≥987** method-linked source records |
 | Practical implementation findings extracted from the research | **860** |
 | Reusable engineering capabilities identified from those findings | **77** |
-
-These counts describe different parts of the system and are not intended to be added together.
 
 ## 1. Current typed molecular contracts
 
@@ -305,19 +304,20 @@ These resources include external databases, local genome/reference files, indexe
 
 ## 6. Species and workflow-context coverage
 
-Reviewed routing/profile support includes, at differing depths:
+The current registry contains **16 reviewed species/workflow profiles across 12 organism/context categories**. The 16 is a profile count, not a species count: several organisms have more than one workflow profile. The 12 routing categories comprise **9 named species** plus broader mammalian-cell, plant and insect-cell contexts.
 
-- *Danio rerio* — Tol2 transgenesis, IVT mRNA and endogenous editing contexts.
-- *Nothobranchius furzeri* — Tol2 transgenesis and endogenous editing.
+- *Danio rerio* — Tol2 transgenesis and IVT mRNA profiles, with endogenous-editing context handled by the molecular workflow.
+- *Nothobranchius furzeri* — Tol2 transgenesis and endogenous knock-in profiles.
 - *Oryzias latipes* — Tol2 transgenesis.
-- *Mus musculus* — pronuclear/random transgenesis and targeted allele contexts.
-- mammalian-cell expression contexts.
-- *Xenopus laevis* and *X. tropicalis* transgenesis contexts.
-- *Drosophila melanogaster* phiC31 transgenesis.
-- *Caenorhabditis elegans* MosSCI/single-copy contexts.
-- *Saccharomyces cerevisiae* expression and homologous-recombination contexts.
-- plant Agrobacterium/T-DNA contexts.
-- insect-cell/baculovirus expression contexts.
+- *Mus musculus* — pronuclear/random transgenesis and targeted conditional-allele profiles.
+- *Xenopus laevis* — transgenesis context.
+- *Xenopus tropicalis* — transgenesis context.
+- *Drosophila melanogaster* — phiC31 transgenesis.
+- *Caenorhabditis elegans* — MosSCI/single-copy insertion.
+- *Saccharomyces cerevisiae* — expression/vector context.
+- mammalian-cell expression — transient-transfection and stable-integration profiles.
+- plant — Agrobacterium/T-DNA context.
+- insect-cell — baculovirus expression context.
 
 Species routing is evidence-aware; a method being chemically possible does not imply that regulatory architecture or genomic coordinates are transferable across organisms.
 
@@ -333,17 +333,17 @@ Species routing is evidence-aware; a method being chemically possible does not i
 
 The 36-method cloning corpus was created with a **separate private research AI system that is not included in this public repository or the active LabOS code repository**. It was used to conduct and structure method-by-method evidence mining and to generate one structured Markdown research dossier per method from papers, manufacturer/authoritative documentation, protocols, software/design resources, repositories and troubleshooting searches.
 
-Across the corpus, individual dossiers retained **22–33 sources** (mean **27.4**) before additional troubleshooting/saturation searches. The complete private dossier set contains approximately **354,426 words** of synthesized technical analysis.
+Across the corpus, individual dossiers reviewed **22–33 sources** before additional troubleshooting/saturation searches. The complete private dossier set contains approximately **354,426 words** of synthesized technical analysis.
 
 ### Separate Custom-GPT teacher / curriculum/evaluation service
 
 A different private service supports controlled AI evaluation and future improvement. Its architecture separates the Custom-GPT teacher surface, training PostgreSQL, main runtime, protected validator PostgreSQL and human review. Held-out validation/test material cannot be promoted into positive training examples, and failed decisions are excluded from positive targets.
 
-## 8. Research-to-engineering compression
+## 8. Research-to-engineering pipeline
 
 The research pipeline was intentionally depth-first:
 
-**36 cloning methods researched → ≥987 method-linked source records reviewed → ~354,426 words of synthesis → 860 practical implementation findings → 77 reusable engineering capabilities → 8 high-leverage implementation families**
+**36 cloning methods researched → ≥987 method-linked source records reviewed → ~354,426 words of synthesis → 860 practical implementation findings → 77 reusable engineering capabilities**
 
 The **860 findings were consolidated into 77 reusable engineering capabilities** because many cloning methods rely on the same underlying molecular operations. Method-specific chemistry and evidence remain in their profiles, while genuinely shared operations are implemented once as reusable deterministic primitives.
 
