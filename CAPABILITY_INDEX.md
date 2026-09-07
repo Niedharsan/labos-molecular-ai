@@ -1,25 +1,20 @@
 # LabOS — Public Capability Index
 
-> **Evaluator-facing technical index.** The active LabOS implementation, laboratory data, prompts and research corpus remain private. This page exposes the breadth and structure of the system without publishing private scientific implementation details.
+> The active LabOS implementation, laboratory data, prompts and research corpus remain private. This page exposes the breadth and structure of the system without publishing private scientific implementation details.
 
 [← Back to main README](README.md)
 
-## Snapshot
+## September 2026 snapshot
 
-| Layer | Current / audited scale |
+| Capability | Scale |
 |---|---:|
-| Current registered typed molecular contracts | **116** unique `MolecularToolName` contracts |
-| Frozen August 2026 capability-audit count | **114** contracts |
-| Deterministic biological engine families | **29** in the frozen capability audit |
-| Cloning / DNA-construction research dossiers | **36** |
-| Sequence-resolvable cloning strategy families | **34** in the frozen capability audit |
-| Active scientific/runtime integrations | **20** in the frozen core audit, with additional integrated/optional backends added later |
-| Biological data/reference-resource packages | **~30** at architecture level |
-| Retained source–method evidence instances | **≥987** |
-| Structured practical observations | **860** |
-| Deduplicated reusable capability classes | **77** |
+| Registered molecular tools | **116** typed molecular tool contracts |
+| Cloning methods researched | **36** method families |
+| Research references reviewed across cloning methods | **≥987** method-linked source records |
+| Practical implementation findings extracted from the research | **860** |
+| Reusable engineering capabilities identified from those findings | **77** |
 
-The counts deliberately separate **model/tool contracts**, **shared deterministic engines**, **research-method dossiers**, **software packages** and **data resources**. They are different architectural layers and are not added together.
+These counts describe different parts of the system and are not intended to be added together.
 
 ## 1. Current typed molecular contracts
 
@@ -159,9 +154,9 @@ The current private runtime registry contains **116 unique typed contracts**. Th
 - `generate_cloning_protocol`
 - `build_order_package`
 
-## 2. Deterministic biological engine families
+## 2. Core molecular engines
 
-The frozen capability audit grouped shared implementation into **29 biological engine families** rather than counting every wrapper as a new algorithm:
+The last full implementation audit grouped the shared deterministic implementation into **29 core molecular engine families** rather than counting every wrapper as a separate algorithm. Newer optional backends are listed separately below rather than being folded into this historical audit count.
 
 1. Gene/transcript/CDS/reference resolution.
 2. Library/inventory component resolution.
@@ -193,9 +188,9 @@ The frozen capability audit grouped shared implementation into **29 biological e
 28. Exact construct defect/final-sequence/feature/translation validation.
 29. Construct identity/read-alignment/quality/variant/junction verification.
 
-## 3. Cloning and DNA-construction methods researched
+## 3. Cloning methods researched
 
-The cloning reasoning corpus contains a structured dossier for each of these **36 method families**:
+The cloning reasoning corpus contains a structured research dossier for each of these **36 method families**:
 
 1. Annealed-Oligo Insertion
 2. BASIC Assembly
@@ -234,7 +229,7 @@ The cloning reasoning corpus contains a structured dossier for each of these **3
 35. USER Cloning / USER Fusion
 36. Yeast Homologous Recombination / TAR Cloning
 
-The frozen implementation audit separately counted **34 sequence-resolvable cloning strategy families** across nine mechanistic superfamilies. The distinction matters: a research dossier is a knowledge/profile unit, whereas an executable deterministic engine may support several related methods through shared molecular primitives.
+Several related methods share the same underlying molecular operations, so the research-method count should not be interpreted as a count of separate software engines.
 
 ## 4. Scientific software and runtime integrations
 
@@ -306,7 +301,7 @@ Representative resources include:
 - empirical Golden Gate ligation datasets with pinned provenance;
 - curated evidence and reference mappings.
 
-The architecture audit reconciled approximately **30 named external/public, local/reference and curated biological resource packages**. Unlike the typed tool registry, these resources do not yet live in one frozen machine-authoritative manifest, so `~30` is deliberately reported as an architecture-level count rather than a permanent invariant.
+These resources include external databases, local genome/reference files, indexes and curated laboratory/reference data. Because they do not live in one machine-authoritative manifest, this page no longer presents a single approximate package count as if it were a precise current metric.
 
 ## 6. Species and workflow-context coverage
 
@@ -348,9 +343,9 @@ A different private service supports controlled AI evaluation and future improve
 
 The research pipeline was intentionally depth-first:
 
-**36 method dossiers → ≥987 retained source–method evidence instances → ~354,426 words of synthesis → 860 structured practical observations → 77 reusable capability classes → 8 high-leverage implementation families**
+**36 cloning methods researched → ≥987 method-linked source records reviewed → ~354,426 words of synthesis → 860 practical implementation findings → 77 reusable engineering capabilities → 8 high-leverage implementation families**
 
-The **860 → 77** normalization is an **11.2:1 compression** (**91.0% fewer units**) by underlying molecular operation. Method-specific chemistry and evidence remain in profiles, while genuinely shared operations are implemented once as reusable deterministic primitives.
+The **860 findings were consolidated into 77 reusable engineering capabilities** because many cloning methods rely on the same underlying molecular operations. Method-specific chemistry and evidence remain in their profiles, while genuinely shared operations are implemented once as reusable deterministic primitives.
 
 ## Interpretation
 
